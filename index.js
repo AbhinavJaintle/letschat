@@ -5,7 +5,13 @@ const http = require("http");
 const socketio = require("socket.io");
 
 const redis = require("redis");
-const client = redis.createClient({url: process.env.REDIS_URL});
+const client = redis.createClient({
+    url: process.env.REDIS_URL,
+    socket: {
+      tls: true,
+      rejectUnauthorized: false
+    }
+  });
 
 app.set("view engine", "ejs");
 
