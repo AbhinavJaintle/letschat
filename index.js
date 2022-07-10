@@ -5,7 +5,7 @@ const http = require("http");
 const socketio = require("socket.io");
 
 const redis = require("redis");
-const client = redis.createClient();
+const client = redis.createClient({url: process.env.REDIS_URL});
 
 app.set("view engine", "ejs");
 
